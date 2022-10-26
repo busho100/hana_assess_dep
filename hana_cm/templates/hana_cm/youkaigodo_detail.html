@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+{% block content %}
+    <h1>{{ youkaigodo.riyousha.name }}</h1>
+
+    {% comment %} {% for youkaigodo in object_list %} {% endcomment %}
+        <p>入力日　　　：　{{youkaigodo.youkaigodo_nyuuryokuDate}}</p> 
+        <p>認定日　　　：　{{youkaigodo.nintei_date}}</p>
+        
+        <p>認定開始日　:　　{{youkaigodo.start_date}}{% comment %} <span class="datetimeshortcuts">&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a href="#" id="calendarlink1"><span class="date-icon" title="Choose a Date"></span></a></span></p> {% endcomment %}
+        <p>認定終了日　：　{{youkaigodo.end_date}}</p>
+        <p>要介護度　　：　{{youkaigodo.kaigodo}}</p>
+
+        <div>
+            <a href='{% url "hana_cm:index" %}'><button class="py-o">一覧</button></a> |
+            <a href='{% url "hana_cm:kupdate" youkaigodo.id %}'><button class="py-o">変更後、上書き保存</button></a> |
+            <a href='{% url "hana_cm:kcreate"  %}'><button class="py-o">要介護認定の追加</button></a> |  
+            <a href='{% url "hana_cm:kdelete" youkaigodo.id %}'><button class="py-o">削除</button></a> |  
+        </div>
+        
+        <div>
+             <a href='{% url "hana_cm:kcreate" %}'>利用者の追加</a>  
+        </div> 
+        
+        <div>
+            <a href='JavaScript:history.back()'>&lt;戻る</a>
+        </div>     
+{% endblock %} 

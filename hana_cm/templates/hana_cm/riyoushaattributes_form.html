@@ -1,0 +1,152 @@
+{% extends './base.html' %}
+{% block content %}
+<h1>フェースシートの{{ object|yesno:'更新,作成' }}</h1>
+
+<form action='' method='post'>
+    {% csrf_token %}
+    
+    
+    <hr size="200%"   noshade>
+    <h2>入力日:{{form.nyuuryoku_date}}</h2>
+    <table class='table table-striped table-hover'>
+        
+    </table>
+
+    <hr size="200%"   noshade>
+        
+    <fieldset>
+        <legend><h2>基本情報</h2></legend>
+        {% comment %} {% for field in form %} {% endcomment %}
+        <table class='table table-striped table-hover'>
+            <tr><th>{{form.name.label}}</th><td>{{form.name}}</td></tr>   
+            <tr><th>{{form.kaigodo.label}}</th><td>{{form.kaigodo }}</td></tr>
+            <tr><th>{{form.cm_name.label}}</th> <td>{{form.cm_name}}</td></tr>
+            {% comment %} <tr><th>{{ form.cm_name.label}}</th>　<td>{{ form.cm_name}}</td></tr> 
+            <tr><th>{{ form.birth_day.label}}</th>　<td>{{ form.birth_day}}</td></tr>{% endcomment %}
+        </table>
+    </fieldset>
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>住所</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.post_no.label}}</th>　<td>{{form.post_no}}</td></tr>   
+            <tr><th>{{form.adress.label}}</th>　<td>{{form.adress }}</td></tr>
+        {% comment %} {% for field in form %} {% endcomment %}
+        </table>
+    </fieldset>
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>認定情報</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.youkaigodo_nyuuryokuDate.label}}</th>　<td>{{form.youkaigodo_nyuuryokuDate}}</td></tr>   
+        <tr><th>{{form.nintei_date.label}}</th>　<td>{{form.nintei_date }}</td></tr>
+        <tr><th>{{form.start_date.label}}</th>　<td>{{form.start_date}}</td></tr>   
+        <tr><th>{{form.end_date.label}}</th>　<td>{{form.end_date }}</td></tr>
+        {% comment %} {% for field in form %} {% endcomment %}
+        </table>
+    </fieldset>
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>生活歴</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.life_history.label}}</th><td>{{form.life_history}}</td></tr>   
+        <tr><th>{{form.disease_history.label}}</th><td>{{form.disease_history}}</td></tr> 
+    </table>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.desease_name.label}}</th><td>{{form.desease_name}}</td> 
+        <th>{{form.primary_care_doctor.label}}</th><td>{{form.primary_care_doctor}}</td>
+        <th>{{form.frequency.label}}</th><td>{{form.frequency}}</td>
+        <th>{{form.othe_frequency.label}}</th><td>{{form.othe_frequency}}</td> 
+        <th>{{form.examination_status.label}}</th><td>{{form.examination_status}}</td></tr>
+        <tr><th>{{form.desease_name2.label}}</th><td>{{form.desease_name2}}</td> 
+        <th>{{form.primary_care_doctor2.label}}</th><td>{{form.primary_care_doctor2}}</td>
+        <th>{{form.frequency2.label}}</th><td>{{form.frequency2}}</td>
+        <th>{{form.othe_frequency2.label}}</th><td>{{form.othe_frequency2}}</td> 
+        <th>{{form.examination_status2.label}}</th><td>{{form.examination_status2}}</td> </tr>
+        <tr><th>{{form.desease_name3.label}}</th><td>{{form.desease_name3}}</td> 
+        <th>{{form.primary_care_doctor3.label}}</th><td>{{form.primary_care_doctor3}}</td>
+        <th>{{form.frequency3.label}}</th><td>{{form.frequency3}}</td>
+        <th>{{form.othe_frequency3.label}}</th><td>{{form.othe_frequency3}}</td> 
+        <th>{{form.examination_status3.label}}</th><td>{{form.examination_status3}}</td> </tr>
+        {% comment %} {% for field in form %} {% endcomment %}
+        </table>
+        <table class='table table-striped table-hover'>
+            
+        </table>
+    </fieldset>
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>主訴</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.huso_honninn.label}}</th><td>{{form.huso_honninn}}</td></tr>   
+        <tr><th>{{form.shuso_family.label}}</th><td>{{form.shuso_family }}</td></tr>
+        <tr><th>{{form.family_situation.label}}</th><td>{{form.family_situation }}</td></tr>
+    </fieldset>
+        <hr>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.family_name.label}}</th><td>{{form.family_name }}</td>
+        <th>{{form.family_relationship.label}}</th><td>{{form.family_relationship }}</td>
+        <th>{{form.family_phone.label}}</th><td>{{form.family_phone }}</td></tr>
+        <tr><th>{{form.family_name2.label}}</th><td>{{form.family_name2 }}</td>
+        <th>{{form.family_relationship2.label}}</th><td>{{form.family_relationship2 }}</td>
+        <th>{{form.family_phone2.label}}</th><td>{{form.family_phone2 }}</td></tr>
+        <tr><th>{{form.family_name3.label}}</th><td>{{form.family_name3 }}</td>
+        <th>{{form.family_relationship3.label}}</th><td>{{form.family_relationship3 }}</td>
+        <th>{{form.family_phone3.label}}</th><td>{{form.family_phone3 }}</td></tr>
+        {% comment %} {% for field in form %} {% endcomment %}
+        </table>
+    
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>障害自立度</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.shougai_koureisha.label}}</th><td>{{form.shougai_koureisha}}</td>
+        <th>{{form.ninchisho_koureisha.label}}</th><td>{{form.ninchisho_koureisha }}</td></tr>
+        {% comment %} {% for field in form %} {% endcomment %}
+        </table>
+    </fieldset>
+
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>社会保険</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.medical_insurance.label}}</th><td>{{form.medical_insurance}}</td>
+        <th>{{form.pension_insurance.label}}</th><td>{{form.pension_insurance}}</td>
+        <th>{{form.disability_notebook.label}}</th><td>{{form.disability_notebook}}</td></tr>
+        </table>
+    </fieldset>
+
+
+    <hr size="200%"   noshade>
+
+    <fieldset>
+        <legend><h2>現在利用しているサービス</h2></legend>
+        <table class='table table-striped table-hover'>
+        <tr><th>{{form.current_service.label}}</th><td>{{form.current_service}}</td></tr>  
+        </table>
+    </fieldset>
+
+    
+
+    <button type='submit' class='submit'>{{object|yesno:'更新,作成'}}</button> 
+    {% comment %} <button type='submit'  class='submit' name="button_1">上書き</button>  {% endcomment %}
+</form>
+
+<div>
+    <a href='JavaScript:history.back()'>&lt;戻る</a>
+</div>     
+
+
+{% endblock %}

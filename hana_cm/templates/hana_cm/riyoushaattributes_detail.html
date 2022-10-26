@@ -1,0 +1,93 @@
+{% extends './base.html' %}
+{% block content %}
+<h1>氏名　{{ riyoushaattributes.name }}</h1>
+
+    
+    
+    
+    <table class='table  table-hover'>
+    <tr><th><h3>入力日</th><th>{{riyoushaattributes.nyuuryoku_date}}</h3></th></tr> 
+    
+    
+
+
+    <tr><th></th><th> 
+        <tr><th><h4>-基本情報-</h4></th><th>
+            <tr><th>要介護度</th><th>{{riyoushaattributes.kaigodo }}</th></tr>
+        <tr><th>ケアマネジャー</th><th> {{riyoushaattributes.cm_name }}</th></tr>
+    <br><br>        
+
+
+
+    <tr><th></th><th>    
+        <tr><th><h4>-住所-</h4></th><th>
+            <tr><th>郵便番号</th><th>{{riyoushaattributes.post_no }}</th></tr>
+        <tr><th>住所</th><th> {{riyoushaattributes.adress }}</th></tr>
+            
+    
+
+
+    <tr><th></th><th>  
+        <tr><th><h4>-認定情報-</h4></th><th>
+            <tr><th>介護情報入力日</th><th>{{riyoushaattributes.youkaigodo_nyuuryokuDate }}</th></tr>
+                <tr><th>認定日</th><th> {{riyoushaattributes.nintei_date }}</th></tr>
+            <tr><th>認定開始日</th><th> {{riyoushaattributes.nintei_date }}</th></tr>
+        <tr><th>認定終了日</th><th> {{riyoushaattributes.nintei_date }}</th></tr>   
+    
+    <tr><th></th><th>
+        <tr><th><h4>-生活歴-</h4></th><th>
+            <tr><th>生活歴</th><th>{{riyoushaattributes.life_history }}</th></tr>
+                <tr><th>病歴</th><th> {{riyoushaattributes.disease_history }}</th></tr>
+                <tr><th>病名</th><th> {{riyoushaattributes.desease_name }}</th>
+            <th>主治医</th><th> {{riyoushaattributes.primary_care_doctor }}</th>
+        <th>通院頻度</th><th> {{riyoushaattributes.frequency }}</th></tr>
+
+    <tr><th></th><th>
+
+            <tr><th><h4>-主訴-</h4></th><th>
+                <tr><th>主訴（本人)</th><th>{{riyoushaattributes.shuso_honninn }}</th></tr>
+                <tr><th>主訴（家族)</th><th> {{riyoushaattributes.shuso_family }}</th></tr>
+            <tr><th>家族状況</th><th> {{riyoushaattributes.family_situation }}</th></tr>
+        
+            <tr><th>家族氏名</th><th> {{riyoushaattributes.family_name }}</th></tr>
+                <tr><th>続柄</th><th> {{riyoushaattributes.family_relationship }}</th></tr>
+            <th>電話番号</th><th> {{riyoushaattributes.family_phone }}</th></tr>
+            <tr><th>家族氏名2</th><th> {{riyoushaattributes.family_name2 }}</th></tr>
+                <tr><th>続柄2</th><th> {{riyoushaattributes.family_relationship2 }}</th></tr>
+            <tr><th>電話番号2</th><th> {{riyoushaattributes.family_phone2 }}</th></tr>
+            <tr><th>家族氏名3</th><th> {{riyoushaattributes.family_name3 }}</th></tr>
+                <tr><th>続柄3</th><th> {{riyoushaattributes.family_relationship3 }}</th></tr>
+            <tr><th>電話番号3</th><th> {{riyoushaattributes.family_phone3 }}</th></tr>
+
+        <tr><th></th><th>
+
+            <tr><th><h4>-障害自立度-</h4></th><th>
+                <tr><th>障害高齢者自立度</th><th>{{riyoushaattributes.shougai_koureisha }}</th></tr>
+            <tr><th>認知症高齢者自立度</th><th> {{riyoushaattributes.ninchisho_koureisha }}</th></tr>
+
+        <tr><th></th><th>
+            <tr><th><h4>-社会保険-</h4></th><th>
+                <tr><th>医療保険</th><th>{{riyoushaattributes.medical_insurance }}</th></tr>
+            <tr><th>年金</th><th> {{riyoushaattributes.pension_insurance }}</th></tr>
+
+        <tr><th></th><th>
+            <tr><th><h4>-現在利用しているサービス-</h4></th></tr>
+                <th>{{riyoushaattributes.current_service }}</th>
+
+        </table>
+
+        <div>
+            <a href='{% url "hana_cm:attributes" %}'><button class="py-o">一覧</button></a> |
+            <a href='{% url "hana_cm:attributesupdate" riyoushaattributes.pk %}'><button class="py-o">編集</button></a> |
+            <a href='{% url "hana_cm:attributesdelete" riyoushaattributes.pk %}'><button class="py-o">削除</button></a> | 
+            <a href='{% url "hana_cm:attributesoverwrite" riyoushaattributes.pk %}'><button class="py-o">上書き</button></a> 
+            '
+        </div>
+
+
+    
+    <div>
+        <a href='JavaScript:history.back()'>&lt;戻る</a>
+    </div>   
+
+{% endblock %} 

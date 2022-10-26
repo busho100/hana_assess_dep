@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% block content %}
+<h1>要介護認定の{{ object|yesno:'変更後、上書き保存,作成'}}</h1>
+
+{% with adl_1_form as f %}
+<form action='' method='post'>
+    {% csrf_token %}
+
+    
+
+
+   <div><label>{{ form.non.label }}</label>:   {{ form.non }} </div>
+    
+    <button type='submit' class='submit'>{{ object|yesno:'変更後、上書き保存,作成'}}</button>
+</form>
+{% endwith %}
+<div>
+    <a href='JavaScript:history.back()'>&lt; 戻る</a>
+</div>
+        
+
+{% endblock %} 

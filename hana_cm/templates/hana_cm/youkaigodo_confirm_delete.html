@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% block content %}
+    <h1>要介護情報の削除</h1>
+    <h1>{{ youkaigodo.riyousha.name }}様</h1>
+
+    {% comment %} {% for youkaigodo in object_list %} {% endcomment %}
+        <p>入力日　　　：　{{youkaigodo.youkaigodo_nyuuryokuDate}}</p> 
+        <p>認定日　　　：　{{youkaigodo.nintei_date}}</p>
+        
+        <p>認定開始日　:　　{{youkaigodo.start_date}}{% comment %} <span class="datetimeshortcuts">&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a href="#" id="calendarlink1"><span class="date-icon" title="Choose a Date"></span></a></span></p> {% endcomment %}
+        <p>認定終了日　：　{{youkaigodo.end_date}}</p>
+        <p>要介護度　　：　{{youkaigodo.kaigodo}}</p>
+        <h2>の認定情報を削除しますか？</h2>
+        <form action='' method='post'>{% csrf_token %}
+            <button type='submit' class='submit delete'>削除する</button>
+        </form>
+
+        <div>
+            <p><a href='JavaScript:history.back()'>&lt; 戻る</a></p>
+        </div>
+
+{% endblock %} 
