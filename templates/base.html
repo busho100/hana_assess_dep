@@ -31,7 +31,7 @@
                         <span class='navbar-text'>{{ user }} - </span></li>
                              
                         <li><a href='{% url "logout" %}' class='logout nav-link'>ログアウト</a></li>
-                        <li><a href='{% url "accounts:signup" %}' class='signup nav-link'> 登録 </a></li>
+                        {% comment %} <li><a href='{% url "accounts:signup" %}' class='signup nav-link'> 登録 </a></li> {% endcomment %}
                     
               {% else %}
                   <li><a href='{%url "login"%}' class='login nav-link'>ログイン</a>
