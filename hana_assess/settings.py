@@ -73,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hana_assess.wsgi.application'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/hana_cm/'
 
 
 # Database

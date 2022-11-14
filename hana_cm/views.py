@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -13,35 +14,35 @@ from .forms import CreateForm,RiyoushaAttributesCreateForm,UpdateForm
 from hana_cm.forms import FindForm, RiyoushaAttributesUpdateForm,Assess_Adl_1,RiyoushaAttributesOverwriteForm
 
 # Create your views here.
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     model = Riyousha
 
-class DetailView(generic.DetailView):
+class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Riyousha
     
     
 
-class CreateView(generic.edit.CreateView):
+class CreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Riyousha
     #fields = '__all__'
     form_class = CreateForm
     model = Riyousha
 
-class UpdateView(generic.edit.UpdateView):
+class UpdateView(LoginRequiredMixin, generic.edit.UpdateView):
     model = Riyousha
     form_class = UpdateForm
     model = Riyousha
     success_url = reverse_lazy('hana_cm:index')
 
-class AttributesIndexView(generic.ListView):
+class AttributesIndexView(LoginRequiredMixin, generic.ListView):
     model = RiyoushaAttributes
 
-class AttributesDetailView(generic.DetailView):
+class AttributesDetailView(LoginRequiredMixin, generic.DetailView):
     model = RiyoushaAttributes
     
     
 
-class AttributesCreateView(generic.edit.CreateView):
+class AttributesCreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = RiyoushaAttributes
     form_class = RiyoushaAttributesCreateForm
     model = RiyoushaAttributes
@@ -49,7 +50,7 @@ class AttributesCreateView(generic.edit.CreateView):
 
 
 
-class AttributesUpdateView(generic.edit.UpdateView):
+class AttributesUpdateView(LoginRequiredMixin, generic.edit.UpdateView):
     model = RiyoushaAttributes
     form_class = RiyoushaAttributesUpdateForm
     model = RiyoushaAttributes
@@ -57,7 +58,7 @@ class AttributesUpdateView(generic.edit.UpdateView):
 
     
 
-def overwrite(request,num):
+def overwrite(LoginRequiredMixin, request,num):
     obj =RiyoushaAttributes.objects.get(id=num)
     if(request.method == 'POST'):
         attributes = RiyoushaAttributesOverwriteForm(request.POST,instance=obj)
@@ -82,7 +83,7 @@ def overwrite(request,num):
 
 
 
-class AttributesDeleteView(generic.edit.DeleteView):
+class AttributesDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
     model = RiyoushaAttributes 
     success_url = reverse_lazy('hana_cm:attributes')  
     
@@ -90,7 +91,7 @@ class AttributesDeleteView(generic.edit.DeleteView):
 
 
 
-class DeleteView(generic.edit.DeleteView):
+class DeleteView(LoginRequiredMixin, generic.edit.DeleteView):
     model = Riyousha 
     success_url = reverse_lazy('hana_cm:index')
 
