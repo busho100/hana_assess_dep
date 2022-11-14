@@ -20,9 +20,9 @@
         <table class='table table-striped table-hover mb-5 '>
             
                 
-            <tr><th class='px-4 col-2'>{{form.name.label}}</th><td >{{form.name}}</td></tr>   
-            <tr><th class='px-4 col-2'>{{form.kaigodo.label}}</th><td>{{form.kaigodo }}</td></tr>
-            <tr><th class='px-4 col-2'>{{form.cm_name.label}}</th><td >{{form.cm_name}}</td></tr>
+            <tr><th class='px-4 col-sm-2'>{{form.name.label}}</th><td >{{form.name}}</td></tr>   
+            <tr><th class='px-4 col-sm-2'>{{form.kaigodo.label}}</th><td>{{form.kaigodo }}</td></tr>
+            <tr><th class='px-4 col-sm-2'>{{form.cm_name.label}}</th><td >{{form.cm_name}}</td></tr>
             
            
             {% comment %} <tr><th>{{ form.cm_name.label}}</th>　<td>{{ form.cm_name}}</td></tr> 
@@ -39,8 +39,8 @@
         <h2 class='mt-5'>住所</h2>
         <table class='table table-striped table-hover mb-5'> 
 
-            <tr><th class='px-4 col-2'>{{form.post_no.label}}</th>　<td>{{form.post_no}}</td></tr>   
-            <tr><th class='px-4 col-2'>{{form.adress.label}}</th>　<td>{{form.adress }}</td></tr>
+            <tr><th class='px-4 col-sm-2'>{{form.post_no.label}}</th>　<td>{{form.post_no}}</td></tr>   
+            <tr><th class='px-4 col-sm-2'>{{form.adress.label}}</th>　<td>{{form.adress }}</td></tr>
         {% comment %} {% for field in form %} {% endcomment %}
         </table>
         
@@ -50,10 +50,10 @@
     
         <h2 class='mt-5'>認定情報</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.youkaigodo_nyuuryokuDate.label}}</th>　<td>{{form.youkaigodo_nyuuryokuDate}}</td></tr>   
-        <tr><th class='px-4 col-2'>{{form.nintei_date.label}}</th>　<td>{{form.nintei_date }}</td></tr>
-        <tr><th class='px-4 col-2'>{{form.start_date.label}}</th>　<td>{{form.start_date}}</td></tr>   
-        <tr><th class='px-4 col-2'>{{form.end_date.label}}</th>　<td>{{form.end_date }}</td></tr>
+        <tr><th class='px-4 col-sm-2'>{{form.youkaigodo_nyuuryokuDate.label}}</th>　<td>{{form.youkaigodo_nyuuryokuDate}}</td></tr>   
+        <tr><th class='px-4 col-sm-2'>{{form.nintei_date.label}}</th>　<td>{{form.nintei_date }}</td></tr>
+        <tr><th class='px-4 col-sm-2'>{{form.start_date.label}}</th>　<td>{{form.start_date}}</td></tr>   
+        <tr><th class='px-4 col-sm-2'>{{form.end_date.label}}</th>　<td>{{form.end_date }}</td></tr>
         {% comment %} {% for field in form %} {% endcomment %}
         </table>
     
@@ -63,8 +63,8 @@
     
         <h2 class='mt-5'>生活歴</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.life_history.label}}</th><td>{{form.life_history}}</td></tr>   
-        <tr><th class='px-4 col-2'>{{form.disease_history.label}}</th><td>{{form.disease_history}}</td></tr> 
+        <tr><th class='px-4 col-sm-2'>{{form.life_history.label}}</th><td>{{form.life_history}}</td></tr>   
+        <tr><th class='px-4 col-sm-2'>{{form.disease_history.label}}</th><td>{{form.disease_history}}</td></tr> 
     </table>
         <table class='table table-striped table-hover mb-5'>
         <tr ><th class='pl-4'>{{form.desease_name.label}}</th><td>{{form.desease_name}}</td> 
@@ -94,9 +94,9 @@
     
         <h2 class='mt-5'>主訴</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.huso_honninn.label}}</th><td>{{form.huso_honninn}}</td></tr>   
-        <tr><th class='px-4 col-2'>{{form.shuso_family.label}}</th><td>{{form.shuso_family }}</td></tr>
-        <tr><th class='px-4 col-2'>{{form.family_situation.label}}</th><td>{{form.family_situation }}</td></tr>
+        <tr><th class='px-4 col-sm-2'>{{form.huso_honninn.label}}</th><td>{{form.huso_honninn}}</td></tr>   
+        <tr><th class='px-4 col-sm-2'>{{form.shuso_family.label}}</th><td>{{form.shuso_family }}</td></tr>
+        <tr><th class='px-4 col-sm-2'>{{form.family_situation.label}}</th><td>{{form.family_situation }}</td></tr>
     
         <hr>
         <table class='table table-striped table-hover'>
@@ -118,8 +118,8 @@
     
         <h2 class='mt-5'>障害自立度</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.shougai_koureisha.label}}</th><td class='col-2'>{{form.shougai_koureisha}}</td>
-        <th class='col-2'>{{form.ninchisho_koureisha.label}}</th><td>{{form.ninchisho_koureisha }}</td></tr>
+        <tr><th class='px-4 col-sm-2'>{{form.shougai_koureisha.label}}</th><td class='col-sm-2'>{{form.shougai_koureisha}}</td>
+        <th class='col-sm-2'>{{form.ninchisho_koureisha.label}}</th><td class='col-sm-2'>{{form.ninchisho_koureisha }}</td></tr>
         {% comment %} {% for field in form %} {% endcomment %}
         </table>
     
@@ -130,9 +130,9 @@
     
         <h2 class='mt-5'>社会保険</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.medical_insurance.label}}</th><td class='col-2'>{{form.medical_insurance}}</td>
-        <th class='col-2'>{{form.pension_insurance.label}}</th><td class='col-2'>{{form.pension_insurance}}</td>
-        <th class='col-2'>{{form.disability_notebook.label}}</th><td class='col-2'>{{form.disability_notebook}}</td></tr>
+        <tr><th class='px-4 col-1'>{{form.medical_insurance.label}}</th><td class='col-1'>{{form.medical_insurance}}</td>
+        <th class='col-1'>{{form.pension_insurance.label}}</th><td class='col-1'>{{form.pension_insurance}}</td>
+        <th class='col-1'>{{form.disability_notebook.label}}</th><td class='col-1'>{{form.disability_notebook}}</td></tr>
         </table>
     
 
@@ -142,7 +142,7 @@
     
         <h2 class='mt-5'>現在利用しているサービス</h2>
         <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-2'>{{form.current_service.label}}</th><td>{{form.current_service}}</td></tr>  
+        <tr><th class='px-4 col-sm-2'>{{form.current_service.label}}</th><td>{{form.current_service}}</td></tr>  
         </table>
     
 
