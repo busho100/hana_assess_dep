@@ -1,6 +1,6 @@
 from sqlite3 import Date
 from django import forms
-from .models import Riyousha,RiyoushaAttributes,DisabilityNotebook,Adl_1,CareManager
+from .models import Riyousha,RiyoushaAttributes,DisabilityNotebook,RiyoushaAssessment,CareManager
  
 class FindForm(forms.Form):
     find = forms.CharField(max_length=255, label='利用者名',required=False,\
@@ -321,34 +321,46 @@ class RiyoushaAttributesOverwriteForm(forms.ModelForm):
 
       
 
-class Assess_Adl_1(forms.ModelForm): 
+""" class AssessAdl1(forms.ModelForm): 
     '''
     :class Meta:'riyousha', 'nyuuryoku_date'のみ選択。ラベルも選択フィールドにのみ付与
     :htmlで<div>処理をするため、個々にフィールドを作成。グループごとに、htmlで<div>で区切ること。
     '''
     class Meta:
-        model = Adl_1
+        model = RiyoushaAssessment
     
         fields = ('riyousha', 'nyuuryoku_date')
         labels = {
             'riyousha':'利用者名',
             'nyuuryoku_date':'入力基準日',
         }
-    non = forms.BooleanField(label='麻痺なし')
+    non = forms.BooleanField(label='麻痺なし') """
 
-""" class  Assess_Adl_koushuku_Form(forms.ModelForm):
+class Assess_Adl_Koushuku_Form(forms.ModelForm): 
     class Meta:
-        model = Assess
-        fields = ('koushuku', 'koushuku_kata', 'koushuku_hiji','koushuku_mata',
-                  'koushuku_ashi', 'koushuku_hiza', 'koushuku_others', 'koushuku_others_text')  
+        model = RiyoushaAssessment 
+        def __init__(self, hana_cm = None,*args, **kwargs):
+            self.hana_cm = hana_cm
+            super().__init__(*args, **kwargs)
+
+            for field in self.Meta.required:
+                self.fields[field].required = False
+
+        fields = '__all__'
+        required = ('non', 'left_upper_limbs', 'left_lower_limbs','right_upper_limbs',
+                  'right_lower_limbs', 'others', 'paralysis_others',)  
         labels = {
-            'koushuku':'拘縮なし',
-            'koushuku_kata':'肩関節',
-            'koushuku_hiji':'肘関節',
-            'koushuku_mata':'股関節',
-            'koushuku_ashi':'足関節',
+            'name':'氏名',
+            'nyuuryoku_date':'入力日',
+            'non':'麻痺なし',
+            'left_upper_limbs':'左上肢',
+            'left_lower_limbs':'左下肢',
+            'right_upper_limbs':'右上肢',
+            'right_lower_limbs':'右下肢',
             'koushuku_hiza':'膝関節',
-            'koushuku_others':'その他の拘縮',
-            'koushuku_others_text':'その他の麻痺の詳細',   
+            'others':'その他の麻痺',
+            'paralysis_others':'その他の麻痺の詳細',   
         } 
- """
+
+        non = forms.ChoiceField(label = '麻痺なし',required=False,
+                widget=forms.DateInput(attrs={'id': 'one','class': 'form-check-input'}))

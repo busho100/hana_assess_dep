@@ -4,14 +4,14 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-from .models import Riyousha,RiyoushaAttributes,Adl_1 
+from .models import Riyousha,RiyoushaAttributes,RiyoushaAssessment
  
 from django.shortcuts import redirect
 from django.contrib.admin.widgets import AdminDateWidget
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .forms import CreateForm,RiyoushaAttributesCreateForm,UpdateForm
-from hana_cm.forms import FindForm, RiyoushaAttributesUpdateForm,Assess_Adl_1,RiyoushaAttributesOverwriteForm
+from hana_cm.forms import FindForm, RiyoushaAttributesUpdateForm,RiyoushaAttributesOverwriteForm
 
 # Create your views here.
 class IndexView(LoginRequiredMixin, generic.ListView):
@@ -111,14 +111,5 @@ class Find(View):
         self.context['form'] = FindForm(request.POST)
         return render(request, 'hana_cm/find.html', self.context)
 
-def assess_mahi(request):
-    if(request.method == 'POST'):
-        obj = Adl_1()
-        friend = Assess_Adl_1(request.POST, instance=obj)
-        friend.save()
-        return redirect(to='')
-    context={
-        'form':Assess_Adl_1()
-    }
-    
-    return render(request, 'hana_cm/assess_form.html', context)
+class AssessmentIndexView(LoginRequiredMixin, generic.ListView):
+    model = RiyoushaAssessment
