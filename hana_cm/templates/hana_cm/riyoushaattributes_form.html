@@ -2,7 +2,7 @@
 {% block content %}
 <div class='container-fluid'>
     
-<h1>フェースシートの{{ object|yesno:'更新,作成' }}</h1>
+<h1 class='py-2' " >フェースシートの{{ object|yesno:'更新,作成' }}</h1>
 
 <form action='' method='post'>
     {% csrf_token %}
@@ -14,16 +14,16 @@
     <h2 class='my-5'>入力日:{{form.nyuuryoku_date}}</h2>
     <div class='row'>
     <h2 class='mt-5'>基本情報</h2>
-        
+    </div>    
         {% comment %} {% for field in form %} {% endcomment %}
         
         <table class='table table-striped table-hover mb-5 '>
             
-                
-            <tr><th class='px-4 col-sm-2'>{{form.name.label}}</th><td >{{form.name}}</td></tr>   
-            <tr><th class='px-4 col-sm-2'>{{form.kaigodo.label}}</th><td>{{form.kaigodo }}</td></tr>
-            <tr><th class='px-4 col-sm-2'>{{form.cm_name.label}}</th><td >{{form.cm_name}}</td></tr>
-            
+            <div class='row'>    
+                <tr><th class='px-4 col-sm-2'>{{form.name.label}}</th><td >{{form.name}}</td></tr>   
+                <tr><th class='px-4 col-sm-2'>{{form.kaigodo.label}}</th><td>{{form.kaigodo }}</td></tr>
+                <tr><th class='px-4 col-sm-2'>{{form.cm_name.label}}</th><td >{{form.cm_name}}</td></tr>
+            </div>
            
             {% comment %} <tr><th>{{ form.cm_name.label}}</th>　<td>{{ form.cm_name}}</td></tr> 
             <tr><th>{{ form.birth_day.label}}</th>　<td>{{ form.birth_day}}</td></tr>{% endcomment %}
@@ -38,10 +38,10 @@
         
         <h2 class='mt-5'>住所</h2>
         <table class='table table-striped table-hover mb-5'> 
-
-            <tr><th class='px-4 col-sm-2'>{{form.post_no.label}}</th>　<td>{{form.post_no}}</td></tr>   
-            <tr><th class='px-4 col-sm-2'>{{form.adress.label}}</th>　<td>{{form.adress }}</td></tr>
-        {% comment %} {% for field in form %} {% endcomment %}
+            <div class='row'>
+                <tr><th class='px-4 col-sm-2'>{{form.post_no.label}}</th>　<td>{{form.post_no}}</td></tr>   
+                <tr><th class='px-4 col-sm-2'>{{form.adress.label}}</th>　<td>{{form.adress }}</td></tr>
+            </div>
         </table>
         
 
@@ -49,79 +49,83 @@
 
     
         <h2 class='mt-5'>認定情報</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-sm-2'>{{form.youkaigodo_nyuuryokuDate.label}}</th>　<td>{{form.youkaigodo_nyuuryokuDate}}</td></tr>   
-        <tr><th class='px-4 col-sm-2'>{{form.nintei_date.label}}</th>　<td>{{form.nintei_date }}</td></tr>
-        <tr><th class='px-4 col-sm-2'>{{form.start_date.label}}</th>　<td>{{form.start_date}}</td></tr>   
-        <tr><th class='px-4 col-sm-2'>{{form.end_date.label}}</th>　<td>{{form.end_date }}</td></tr>
-        {% comment %} {% for field in form %} {% endcomment %}
-        </table>
-    
+            <table class='table table-striped table-hover mb-5'>
+                <div class="row">
+                    <tr><th class='px-4 col-sm-2'>{{form.youkaigodo_nyuuryokuDate.label}}</th>　<td>{{form.youkaigodo_nyuuryokuDate}}</td></tr>   
+                    <tr><th class='px-4 col-sm-2'>{{form.nintei_date.label}}</th>　<td>{{form.nintei_date }}</td></tr>
+                    <tr><th class='px-4 col-sm-2'>{{form.start_date.label}}</th>　<td>{{form.start_date}}</td></tr>   
+                    <tr><th class='px-4 col-sm-2'>{{form.end_date.label}}</th>　<td>{{form.end_date }}</td></tr>
+                </div>
+            </table>
+            
 
     <hr size="200%"   noshade>
 
     
         <h2 class='mt-5'>生活歴</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-sm-2'>{{form.life_history.label}}</th><td>{{form.life_history}}</td></tr>   
-        <tr><th class='px-4 col-sm-2'>{{form.disease_history.label}}</th><td>{{form.disease_history}}</td></tr> 
-    </table>
-        <table class='table table-striped table-hover mb-5'>
-        <tr ><th class='pl-4'>{{form.desease_name.label}}</th><td>{{form.desease_name}}</td> 
-        <th>{{form.primary_care_doctor.label}}</th><td>{{form.primary_care_doctor}}</td>
-        <th>{{form.frequency.label}}</th><td>{{form.frequency}}</td>
-        <th>{{form.othe_frequency.label}}</th><td>{{form.othe_frequency}}</td> 
-        <th>{{form.examination_status.label}}</th><td>{{form.examination_status}}</td></tr>
-        <tr><th class='pl-4'>{{form.desease_name2.label}}</th><td>{{form.desease_name2}}</td> 
-        <th>{{form.primary_care_doctor2.label}}</th><td>{{form.primary_care_doctor2}}</td>
-        <th>{{form.frequency2.label}}</th><td>{{form.frequency2}}</td>
-        <th>{{form.othe_frequency2.label}}</th><td>{{form.othe_frequency2}}</td> 
-        <th>{{form.examination_status2.label}}</th><td>{{form.examination_status2}}</td> </tr>
-        <tr><th class='pl-4'>{{form.desease_name3.label}}</th><td>{{form.desease_name3}}</td> 
-        <th>{{form.primary_care_doctor3.label}}</th><td>{{form.primary_care_doctor3}}</td>
-        <th>{{form.frequency3.label}}</th><td>{{form.frequency3}}</td>
-        <th>{{form.othe_frequency3.label}}</th><td>{{form.othe_frequency3}}</td> 
-        <th>{{form.examination_status3.label}}</th><td>{{form.examination_status3}}</td> </tr>
-        {% comment %} {% for field in form %} {% endcomment %}
-        </table>
-        <table class='table table-striped table-hover'>
-            
-        </table>
+            <table class='table table-striped table-hover mb-5'>
+                <div class="row">
+                    <tr><th class='px-4 col-sm-2'>{{form.life_history.label}}</th><td>{{form.life_history}}</td></tr>   
+                    <tr><th class='px-4 col-sm-2'>{{form.disease_history.label}}</th><td>{{form.disease_history}}</td></tr> 
+                </div>
+            </table>
+            <table class='table table-striped table-hover mb-5'>
+                <div class='row'>
+                    <tr ><th class='pl-4'>{{form.desease_name.label}}</th><td>{{form.desease_name}}</td> 
+                    <th>{{form.primary_care_doctor.label}}</th><td>{{form.primary_care_doctor}}</td>
+                    <th>{{form.frequency.label}}</th><td>{{form.frequency}}</td>
+                    <th>{{form.othe_frequency.label}}</th><td>{{form.othe_frequency}}</td> 
+                    <th>{{form.examination_status.label}}</th><td>{{form.examination_status}}</td></tr>
+                    <tr><th class='pl-4'>{{form.desease_name2.label}}</th><td>{{form.desease_name2}}</td> 
+                    <th>{{form.primary_care_doctor2.label}}</th><td>{{form.primary_care_doctor2}}</td>
+                    <th>{{form.frequency2.label}}</th><td>{{form.frequency2}}</td>
+                    <th>{{form.othe_frequency2.label}}</th><td>{{form.othe_frequency2}}</td> 
+                    <th>{{form.examination_status2.label}}</th><td>{{form.examination_status2}}</td> </tr>
+                    <tr><th class='pl-4'>{{form.desease_name3.label}}</th><td>{{form.desease_name3}}</td> 
+                    <th>{{form.primary_care_doctor3.label}}</th><td>{{form.primary_care_doctor3}}</td>
+                    <th>{{form.frequency3.label}}</th><td>{{form.frequency3}}</td>
+                    <th>{{form.othe_frequency3.label}}</th><td>{{form.othe_frequency3}}</td> 
+                    <th>{{form.examination_status3.label}}</th><td>{{form.examination_status3}}</td> </tr>
+                </div>
+            </table>
+        
     
 
     <hr size="200%"   noshade>
 
     
         <h2 class='mt-5'>主訴</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-sm-2'>{{form.huso_honninn.label}}</th><td>{{form.huso_honninn}}</td></tr>   
-        <tr><th class='px-4 col-sm-2'>{{form.shuso_family.label}}</th><td>{{form.shuso_family }}</td></tr>
-        <tr><th class='px-4 col-sm-2'>{{form.family_situation.label}}</th><td>{{form.family_situation }}</td></tr>
+            <table class='table table-striped table-hover mb-5'>
+                <div class='row'>
+                    <tr><th class='px-4 col-sm-2'>{{form.huso_honninn.label}}</th><td>{{form.huso_honninn}}</td></tr>   
+                    <tr><th class='px-4 col-sm-2'>{{form.shuso_family.label}}</th><td>{{form.shuso_family }}</td></tr>
+                    <tr><th class='px-4 col-sm-2'>{{form.family_situation.label}}</th><td>{{form.family_situation }}</td></tr>
     
-        <hr>
-        <table class='table table-striped table-hover'>
-        <tr><th class='pl-4'>{{form.family_name.label}}</th><td>{{form.family_name }}</td>
-        <th>{{form.family_relationship.label}}</th><td>{{form.family_relationship }}</td>
-        <th>{{form.family_phone.label}}</th><td>{{form.family_phone }}</td></tr>
-        <tr><th class='pl-4'>{{form.family_name2.label}}</th><td>{{form.family_name2 }}</td>
-        <th>{{form.family_relationship2.label}}</th><td>{{form.family_relationship2 }}</td>
-        <th>{{form.family_phone2.label}}</th><td>{{form.family_phone2 }}</td></tr>
-        <tr><th class='pl-4'>{{form.family_name3.label}}</th><td>{{form.family_name3 }}</td>
-        <th>{{form.family_relationship3.label}}</th><td>{{form.family_relationship3 }}</td>
-        <th>{{form.family_phone3.label}}</th><td>{{form.family_phone3 }}</td></tr>
-        {% comment %} {% for field in form %} {% endcomment %}
-        </table>
+                    <hr>
+                    <table class='table table-striped table-hover'>
+                    <tr><th class='pl-4 col-sm-1'>{{form.family_name.label}}</th><td>{{form.family_name }}</td>
+                    <th>{{form.family_relationship.label}}</th><td>{{form.family_relationship }}</td>
+                    <th>{{form.family_phone.label}}</th><td>{{form.family_phone }}</td></tr>
+                    <tr><th class='pl-4'>{{form.family_name2.label}}</th><td>{{form.family_name2 }}</td>
+                    <th>{{form.family_relationship2.label}}</th><td>{{form.family_relationship2 }}</td>
+                    <th>{{form.family_phone2.label}}</th><td>{{form.family_phone2 }}</td></tr>
+                    <tr><th class='pl-4'>{{form.family_name3.label}}</th><td>{{form.family_name3 }}</td>
+                    <th>{{form.family_relationship3.label}}</th><td>{{form.family_relationship3 }}</td>
+                    <th>{{form.family_phone3.label}}</th><td>{{form.family_phone3 }}</td></tr>
+                </div>
+            </table>
     
 
     <hr size="200%"   noshade>
 
     
         <h2 class='mt-5'>障害自立度</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-sm-2'>{{form.shougai_koureisha.label}}</th><td class='col-sm-2'>{{form.shougai_koureisha}}</td>
-        <th class='col-sm-2'>{{form.ninchisho_koureisha.label}}</th><td class='col-sm-2'>{{form.ninchisho_koureisha }}</td></tr>
-        {% comment %} {% for field in form %} {% endcomment %}
-        </table>
+            <table class='table table-striped table-hover mb-5'>
+                <div class='row'>
+                    <tr><th class='px-4 col-sm-2'>{{form.shougai_koureisha.label}}</th><td class='col-sm-2'>{{form.shougai_koureisha}}</td>
+                    <th class='col-sm-2'>{{form.ninchisho_koureisha.label}}</th><td class='col-sm-2'>{{form.ninchisho_koureisha }}</td></tr>
+                </div>
+            </table>
     
 
 
@@ -129,11 +133,13 @@
 
     
         <h2 class='mt-5'>社会保険</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-1'>{{form.medical_insurance.label}}</th><td class='col-1'>{{form.medical_insurance}}</td>
-        <th class='col-1'>{{form.pension_insurance.label}}</th><td class='col-1'>{{form.pension_insurance}}</td>
-        <th class='col-1'>{{form.disability_notebook.label}}</th><td class='col-1'>{{form.disability_notebook}}</td></tr>
-        </table>
+            <table class='table table-striped table-hover mb-5'>
+                <div class='row'>
+                    <tr><th class='px-4 col-1'>{{form.medical_insurance.label}}</th><td class='col-1'>{{form.medical_insurance}}</td>
+                    <th class='col-1'>{{form.pension_insurance.label}}</th><td class='col-1'>{{form.pension_insurance}}</td>
+                    <th class='col-1'>{{form.disability_notebook.label}}</th><td class='col-1'>{{form.disability_notebook}}</td></tr>
+                </div> 
+            </table>
     
 
 
@@ -141,21 +147,25 @@
 
     
         <h2 class='mt-5'>現在利用しているサービス</h2>
-        <table class='table table-striped table-hover mb-5'>
-        <tr><th class='px-4 col-sm-2'>{{form.current_service.label}}</th><td>{{form.current_service}}</td></tr>  
-        </table>
+            <table class='table table-striped table-hover mb-5'>
+                <div class='row'>
+                    <tr><th class='px-4 col-sm-2'>{{form.current_service.label}}</th><td>{{form.current_service}}</td></tr>  
+                </div>
+            </table>
     
 
     
 
-    <button type='submit' class='submit'>{{object|yesno:'更新,作成'}}</button> 
+     
     {% comment %} <button type='submit'  class='submit' name="button_1">上書き</button>  {% endcomment %}
 </form>
-</div>
+<button type='submit' class='submit'>{{object|yesno:'更新,作成'}}</button>
+
 <div>
+    
     <a href='JavaScript:history.back()'>&lt;戻る</a>
 </div> 
-</div>    
+
 
 
 {% endblock %}

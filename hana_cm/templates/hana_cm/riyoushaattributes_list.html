@@ -4,24 +4,22 @@
     
     <hr size="200%"   noshade>
     <h2>入力日</h2>
+    
     <table class='table table-striped table-hover'>
         <tr>
             <th>更新日</th><th>作成日</th><th>氏名</th>
         </tr>  
         
-        {% for facesheet in object_list %} 
-        <tr><td>{{facesheet.pub_date}}</td>
-        <td>{{facesheet.nyuuryoku_date}}</td>
-        <td><a href ='{% url "hana_cm:attributesdetail" facesheet.id %}'>{{ facesheet.name }}</a></td></tr>
-        
-
-        
+            {% for facesheet in object_list %} 
+                <tr><td>{{facesheet.pub_date}}</td>
+                <td>{{facesheet.nyuuryoku_date}}</td>
+                <td><a href ='{% url "hana_cm:attributesdetail" facesheet.id %}'>{{ facesheet.name }}</a></td></tr>
             {% endfor %}
-
-            <div>
-                <a href='{% url "hana_cm:attributescreate" %}'><button class="py-o">利用者の追加</button></a>
-                {% comment %} <a href='{% url "hana_cm:youkaigodo" %}'><button class="py-o">要介護認定</button></a>     {% endcomment %}
-            </div> 
+    </table>
+    
+    <div>
+        <a href='{% url "hana_cm:attributescreate" %}'><button class="py-0">利用者の追加</button></a>
+    </div> 
             
 
 {% endblock %}
