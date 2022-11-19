@@ -213,7 +213,7 @@ class FrequencyOfHospitalVisits(models.Model):
         return self.frequency_of_hospital_visits
     
 
-class Adl_1(models.Model):
+class RiyoushaAssessment(models.Model):
 
     class Meta:
         verbose_name_plural = 'アセスメント'
@@ -224,8 +224,11 @@ class Adl_1(models.Model):
         (False, 'なし'),
         (True, 'あり'),
     )
-    riyousha = models.ForeignKey('Riyousha', verbose_name='利用者',on_delete=models.CASCADE)
-    nyuuryoku_date = models.DateField(auto_now_add=False, verbose_name='入力基準日')
+    #利用者及び入力情報（基本情報から引っ張ってきている）
+    name = models.ForeignKey('RiyoushaAttributes', verbose_name='利用者',on_delete=models.CASCADE, related_name='assess_name')
+    nyuuryoku_date = models.ForeignKey('RiyoushaAttributes', verbose_name='入力基準日' ,on_delete=models.CASCADE ,related_name='assess_date' ,null=True)
+    
+    #麻痺情報
     non = models.BooleanField( help_text="「なし」なら、チェックしてください", verbose_name='麻痺なし')
     left_upper_limbs = models.BooleanField( choices=IS_USED_CHOICES, verbose_name='左上肢',help_text="「左上肢に麻痺」があれば、チェックしてください",null=True)
     left_lower_limbs = models.BooleanField( choices=IS_USED_CHOICES, verbose_name='左下肢',help_text="「左下肢に麻痺」があれば、チェックしてください",null=True)
