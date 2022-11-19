@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import RiyoushaAttributes,CareManager,Adl_1
+from .models import RiyoushaAttributes,CareManager,RiyoushaAssessment
 from .models import Ninchisho_Jiritudo,Shogai_Jiritudo,Medical_Insurance
 from .models import Riyousha,Pension_Insurance,Gender,Kaigodo,FrequencyOfHospitalVisits
 from .models import DisabilityNotebook,ExaminationStatus
@@ -13,7 +13,7 @@ admin.site.register(CareManager)
 admin.site.register(Kaigodo)
 admin.site.register(Riyousha)
 admin.site.register(RiyoushaAttributes)
-admin.site.register(Adl_1)
+admin.site.register(RiyoushaAssessment)
 admin.site.register(Shogai_Jiritudo)
 admin.site.register(Ninchisho_Jiritudo)
 admin.site.register(Medical_Insurance)
