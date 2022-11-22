@@ -124,6 +124,7 @@ class RiyoushaAttributes(models.Model):
     #現在利用しているサービス
     current_service = models.TextField(verbose_name = '生活歴',null=True, blank=True)
 
+    
     pub_datetime = models.DateTimeField(auto_now_add=True, null=True)
     pub_date = models.DateField(auto_now_add=True, null=True)
     
