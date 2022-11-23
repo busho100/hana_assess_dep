@@ -9,26 +9,35 @@
        <style>body{padding-top:80px;}</style> 
        <title>アセスメント表</title>
     </head>
-    
-        
-         
+      <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top  ">
+          <div class="container-fluid">
             <a class="navbar-brand" href="{% url "hana_cm:index" %}">基本情報</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="{% url "hana_cm:attributes" %}">フェイスシート表</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url "hana_cm:attributes" %}">フェイスシート表</a>
+                </li>
+                <li class="nav-item">
+            {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="{% url "hana_cm:assessment" %}">アセスメント表</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </button> {% endcomment %}
+                    <a class="nav-link active" aria-current="page" href="{% url "hana_cm:assessment" %}">アセスメント表</a>
+                </li>
+              </ul>
+        
+            {% comment %} <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
+            </button> {% endcomment %}
+                            
             
 
           
             
-            </div> 
+            
             <div>
             <ul class='navbar-nav'>
               {% if user.is_authenticated %}
@@ -44,6 +53,7 @@
               {% endif %}
               </ul>
             </div>
+          </div> 
 
                   
           </nav>
@@ -56,6 +66,9 @@
             {% block content %}  
             {% endblock %}
         </div>
+      </div>
     </nav>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>
